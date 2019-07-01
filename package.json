@@ -1,0 +1,45 @@
+{
+  "name": "breeze-entitygraph",
+  "version": "1.0.0",
+  "description": "Provides getEntityGraph from BreezeLabs",
+  "dependencies": {
+    "breeze-client": "^2.0.0-alpha.13"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^3.3.13",
+    "@types/node": "^12.0.4",
+    "canonical-path": "^1.0.0",
+    "fs-extra": "^8.0.1",
+    "jasmine": "^3.4.0",
+    "rimraf": "^2.6.3",
+    "tslint": "^5.17.0",
+    "typedoc": "^0.14.2",
+    "typescript": "~3.4.5",
+    "ng-packagr": "^5.3.0",
+    "@angular/compiler": "^8.0.0",
+    "@angular/compiler-cli": "^8.0.0",
+    "@angular/core": "^8.0.0"
+  },
+  "scripts": {
+    "build": "npm run packagr && npm pack ./dist",
+    "publish": "npm publish --tag next ./dist",
+    "test": "tsc && jasmine",
+    "clean": "rimraf temp && rimraf src/*.js* && rimraf src/*.d.ts && rimraf ./*.d.ts && rimraf dist",
+    "tsc": "tsc",
+    "watch-tsc": "tsc -w",
+    "typedoc": "typedoc --out ./temp/docs/ --exclude xx  --excludePrivate --excludeNotExported  --tsConfig ./tsconfig.typedoc.json --mode file --readme ./readme.doc.md ./src/breeze.ts && node tools/copyIfDifferent.js temp/docs docs ",
+    "packagr": "ng-packagr -p package.json"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "public_api.ts"
+    },
+    "whitelistedNonPeerDependencies": [
+        "breeze-client"
+    ]
+  },
+  "author": {
+    "name": "Samuel Berthelot",
+    "email": "graphicsxp@gmail.com"
+  }
+}

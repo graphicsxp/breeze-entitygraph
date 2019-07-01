@@ -1,0 +1,6 @@
+# Node.js Tools for Visual Studio
+.ntvs_analysis.dat
+node_modules/
+
+# compiled output
+dist
